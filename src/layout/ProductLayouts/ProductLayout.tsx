@@ -1,15 +1,19 @@
 import CardProduct from "../../components/Fragments/CardProduct";
+import { ProductData } from "../../data/ProductData";
 
 const ProductLayout = () => {
   return (
-    <CardProduct>
-      <CardProduct.Header image="/image/Happy1.jpeg" />
-      <CardProduct.Body name="Happy">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla
-        accusamus laboriosam tempore nam hic voluptatem!
-      </CardProduct.Body>
-      <CardProduct.Footer>Add to cart</CardProduct.Footer>
-    </CardProduct>
+    <div className="d-flex justify-content-center">
+      {ProductData.map((items) => {
+        return (
+          <CardProduct key={items.id}>
+            <CardProduct.Header image={items.img} />
+            <CardProduct.Body name={items.name}>{items.desc}</CardProduct.Body>
+            <CardProduct.Footer>Add to cart</CardProduct.Footer>
+          </CardProduct>
+        );
+      })}
+    </div>
   );
 };
 

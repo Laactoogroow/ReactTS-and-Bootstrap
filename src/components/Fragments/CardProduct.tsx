@@ -17,6 +17,7 @@ interface BodyProps {
 
 interface FooterProps {
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
 const CardProduct: React.FC<CardProductProps> & {
@@ -44,8 +45,8 @@ const CardBody: React.FC<BodyProps> = ({ name, children }) => {
   );
 };
 
-const CardFooter: React.FC<FooterProps> = ({ children }) => {
-  return <Button type="button">{children}</Button>;
+const CardFooter: React.FC<FooterProps> = ({ onClick, children }) => {
+  return <Button type="button" onClick={onClick}>{children}</Button>;
 };
 
 CardProduct.Header = CardHeader;
